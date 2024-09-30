@@ -1,0 +1,12 @@
+.btn-item {
+  height: 50px;
+  width: 100%;
+}
+
+.btn-item:hover {
+  background-color: yellowgreen;
+}
+
+.btn-item.active {
+  background-color: rgb(146, 186, 241);
+}

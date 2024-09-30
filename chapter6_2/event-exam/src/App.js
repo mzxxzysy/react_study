@@ -1,41 +1,16 @@
 import { useState } from "react";
+import { HomePage } from "./components/Homepage";
+import { Login } from "./components/Login";
 
 function App() {
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
-
-  const handleLoginInput = (e) => {
-    setId(e.target.value);
+  const user = {
+    idUser: "jaehyun@weniv.com",
+    pwUser: "1234",
   };
 
-  const handlePasswordInput = (e) => {
-    setPw(e.target.value);
-  };
+  const [login, setLogin] = useState(false);
 
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    if (id === "") {
-      alert("아이디를 입력하지 않았습니다.");
-    }
-    if (pw === "") {
-      alert("패스워드를 입력하지 않았습니다.");
-    }
-    alert(`id : ${id}, pw : ${pw}`);
-  };
-
-  return (
-    <form onSubmit={handleLoginSubmit}>
-      <label>
-        아이디 :
-        <input type="text" onChange={handleLoginInput} />
-      </label>
-      <br />
-      <label>
-        비밀번호 :
-        <input type="password" onChange={handlePasswordInput} />
-      </label>
-      <button type="submit">로그인</button>
-    </form>
-  );
+  return <>{login ? <HomePage /> : <Login infoUser={user} setLogin={setLogin} />}</>;
 }
+
 export default App;
